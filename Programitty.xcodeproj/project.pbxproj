@@ -22,6 +22,8 @@
 		46670F961C2FA003000B8AD0 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46670F8F1C2FA003000B8AD0 /* ParseTwitterUtils.framework */; };
 		466E62571C333EDC006FE3C3 /* SwiftRouter.framework.dSYM in Copy Carthage Debug */ = {isa = PBXBuildFile; fileRef = 466E62561C333EDC006FE3C3 /* SwiftRouter.framework.dSYM */; };
 		466E62591C333F26006FE3C3 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E62581C333F26006FE3C3 /* Program.swift */; };
+		466E625D1C334982006FE3C3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466E625B1C334982006FE3C3 /* Fabric.framework */; };
+		466E625E1C334983006FE3C3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466E625C1C334982006FE3C3 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +58,8 @@
 		46670F8F1C2FA003000B8AD0 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = Carthage/Build/iOS/ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		466E62561C333EDC006FE3C3 /* SwiftRouter.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftRouter.framework.dSYM; path = Carthage/Build/iOS/SwiftRouter.framework.dSYM; sourceTree = "<group>"; };
 		466E62581C333F26006FE3C3 /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		466E625B1C334982006FE3C3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		466E625C1C334982006FE3C3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46670F931C2FA003000B8AD0 /* FBSDKShareKit.framework in Frameworks */,
+				466E625E1C334983006FE3C3 /* Crashlytics.framework in Frameworks */,
 				46670F901C2FA003000B8AD0 /* Bolts.framework in Frameworks */,
 				46670F951C2FA003000B8AD0 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				466E625D1C334982006FE3C3 /* Fabric.framework in Frameworks */,
 				46670F961C2FA003000B8AD0 /* ParseTwitterUtils.framework in Frameworks */,
 				46670F911C2FA003000B8AD0 /* FBSDKCoreKit.framework in Frameworks */,
 				46670F921C2FA003000B8AD0 /* FBSDKLoginKit.framework in Frameworks */,
@@ -111,6 +117,8 @@
 		46670F881C2F9FF9000B8AD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				466E625B1C334982006FE3C3 /* Fabric.framework */,
+				466E625C1C334982006FE3C3 /* Crashlytics.framework */,
 				46670F891C2FA003000B8AD0 /* Bolts.framework */,
 				46670F8A1C2FA003000B8AD0 /* FBSDKCoreKit.framework */,
 				46670F8B1C2FA003000B8AD0 /* FBSDKLoginKit.framework */,
@@ -135,6 +143,7 @@
 				46670F6D1C2F95F6000B8AD0 /* Resources */,
 				46670F861C2F9F50000B8AD0 /* Copy Carthage */,
 				466E62551C333EC4006FE3C3 /* Copy Carthage Debug */,
+				466E625A1C334973006FE3C3 /* Add Fabric */,
 			);
 			buildRules = (
 			);
@@ -206,6 +215,20 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		466E625A1C334973006FE3C3 /* Add Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Add Fabric";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 503176f911ee9b92e9565ac73cf51824a55ae6fb 4e6faac849f7654498a75d9e19de15f63836902508c7bb6001f63c216f8e89fe";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -333,6 +356,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Programitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -348,6 +372,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Programitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
