@@ -8,13 +8,29 @@
 
 import UIKit
 
+import Parse
+
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects: [Program]? {
+        didSet { self.tableView.reloadData() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let objectQuery = PFQuery(className: Program.parseClassName())
+        objectQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error != nil {
+                print("errorz")
+            } else if let objects = objects as? [Program] {
+                self.objects = objects
+            } else {
+                print("fux")
+            }
+        }
+        
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -27,20 +43,13 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                controller.program = objects![indexPath.row]
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -50,14 +59,13 @@ class MasterViewController: UITableViewController {
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return objects?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        
+        cell.textLabel!.text = objects![indexPath.row].name
         return cell
     }
 

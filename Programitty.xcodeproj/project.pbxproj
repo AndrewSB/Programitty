@@ -20,7 +20,23 @@
 		46670F941C2FA003000B8AD0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46670F8D1C2FA003000B8AD0 /* Parse.framework */; };
 		46670F951C2FA003000B8AD0 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46670F8E1C2FA003000B8AD0 /* ParseFacebookUtilsV4.framework */; };
 		46670F961C2FA003000B8AD0 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46670F8F1C2FA003000B8AD0 /* ParseTwitterUtils.framework */; };
+		466E62571C333EDC006FE3C3 /* SwiftRouter.framework.dSYM in Copy Carthage Debug */ = {isa = PBXBuildFile; fileRef = 466E62561C333EDC006FE3C3 /* SwiftRouter.framework.dSYM */; };
+		466E62591C333F26006FE3C3 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E62581C333F26006FE3C3 /* Program.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		466E62551C333EC4006FE3C3 /* Copy Carthage Debug */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				466E62571C333EDC006FE3C3 /* SwiftRouter.framework.dSYM in Copy Carthage Debug */,
+			);
+			name = "Copy Carthage Debug";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		46670F6F1C2F95F6000B8AD0 /* Programitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Programitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +54,8 @@
 		46670F8D1C2FA003000B8AD0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		46670F8E1C2FA003000B8AD0 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = Carthage/Build/iOS/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		46670F8F1C2FA003000B8AD0 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = Carthage/Build/iOS/ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		466E62561C333EDC006FE3C3 /* SwiftRouter.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftRouter.framework.dSYM; path = Carthage/Build/iOS/SwiftRouter.framework.dSYM; sourceTree = "<group>"; };
+		466E62581C333F26006FE3C3 /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +79,8 @@
 		46670F661C2F95F6000B8AD0 = {
 			isa = PBXGroup;
 			children = (
-				46670F881C2F9FF9000B8AD0 /* Frameworks */,
 				46670F711C2F95F6000B8AD0 /* Programitty */,
+				46670F881C2F9FF9000B8AD0 /* Frameworks */,
 				46670F701C2F95F6000B8AD0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +99,7 @@
 				46670F721C2F95F6000B8AD0 /* AppDelegate.swift */,
 				46670F741C2F95F6000B8AD0 /* MasterViewController.swift */,
 				46670F761C2F95F6000B8AD0 /* DetailViewController.swift */,
+				466E62581C333F26006FE3C3 /* Program.swift */,
 				46670F781C2F95F6000B8AD0 /* Main.storyboard */,
 				46670F7B1C2F95F6000B8AD0 /* Assets.xcassets */,
 				46670F7D1C2F95F6000B8AD0 /* LaunchScreen.storyboard */,
@@ -99,6 +118,7 @@
 				46670F8D1C2FA003000B8AD0 /* Parse.framework */,
 				46670F8E1C2FA003000B8AD0 /* ParseFacebookUtilsV4.framework */,
 				46670F8F1C2FA003000B8AD0 /* ParseTwitterUtils.framework */,
+				466E62561C333EDC006FE3C3 /* SwiftRouter.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +134,7 @@
 				46670F6C1C2F95F6000B8AD0 /* Frameworks */,
 				46670F6D1C2F95F6000B8AD0 /* Resources */,
 				46670F861C2F9F50000B8AD0 /* Copy Carthage */,
+				466E62551C333EC4006FE3C3 /* Copy Carthage Debug */,
 			);
 			buildRules = (
 			);
@@ -173,22 +194,16 @@
 /* Begin PBXShellScriptBuildPhase section */
 		46670F861C2F9F50000B8AD0 /* Copy Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBSDKShareKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Parse.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ParseFacebookUtilsV4.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ParseTwitterUtils.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftRouter.framework",
 			);
 			name = "Copy Carthage";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
@@ -199,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466E62591C333F26006FE3C3 /* Program.swift in Sources */,
 				46670F771C2F95F6000B8AD0 /* DetailViewController.swift in Sources */,
 				46670F751C2F95F6000B8AD0 /* MasterViewController.swift in Sources */,
 				46670F731C2F95F6000B8AD0 /* AppDelegate.swift in Sources */,
@@ -359,6 +375,7 @@
 				46670F851C2F95F6000B8AD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
