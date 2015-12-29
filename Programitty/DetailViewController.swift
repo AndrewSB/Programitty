@@ -10,23 +10,25 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    var program: Program? {
+    @IBOutlet weak var webView: UIWebView! {
         didSet {
-            
+            webView.backgroundColor = .clearColor()
+            webView.scalesPageToFit = true
         }
+    }
+
+    var program: Program? {
+        didSet { print("url is \(program!.program.url)") }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let url = NSURL(string: program!.program.url!) {
+            webView.loadRequest(NSURLRequest(URL: url))
+        }
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
